@@ -16,32 +16,32 @@ function initRouter() {
   history = createWebHistory(
     qiankunWindow.__POWERED_BY_QIANKUN__ ? '/sub-vue' : '/'
   )
-  return createRouter({
+  router = createRouter({
     history,
     routes
   })
 }
 function render(props = {}) {
   const { container } = props
+  initRouter()
   app = createApp(App)
-
-  router = initRouter()
   app.use(router)
   app.use(createPinia())
-  app.mount(container ? '#sub-viewport' : '#app')
-  if (qiankunWindow.__POWERED_BY_QIANKUN__) {
-    console.log(' 正在作为子应用运行:')
-  }
+  app.mount(container ? container.querySelector('#app') : '#app')
+  // if (qiankunWindow.__POWERED_BY_QIANKUN__) {
+  //   console.log('正在作为子应用运行')
+  // }
 }
-// some code
+
 renderWithQiankun({
   mount(props) {
     render(props)
   },
   bootstrap() {
-    console.log('sub-bootstrap')
+    // console.log('bootstrap')
   },
   unmount(props) {
+    console.log('🚀 ~ unmount ~ unmount:')
     app.unmount()
     app._container.innerHTML = ''
     history.destroy() // 不卸载  router 会导致其他应用路由失败
