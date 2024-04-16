@@ -25,6 +25,7 @@ function render(props = {}) {
   const { container } = props
   initRouter()
   app = createApp(App)
+  app.config.globalProperties.$qiankun = props
   app.use(router)
   app.use(createPinia())
   app.mount(container ? container.querySelector('#app') : '#app')

@@ -26,11 +26,17 @@ if (!window.__POWERED_BY_QIANKUN__) {
 
 // lifecycle => 初始化
 export async function bootstrap(props) {
-  console.log(props)
+  console.log('🚀 ~ bootstrap ~ props:', props)
 }
 
 // lifecycle => 挂载
 export async function mount(props) {
+  props.setGlobalState({
+    userinfo: {
+      name: 'react'
+    }
+  })
+  // console.log('🚀 ~ mount ~ props:', props)
   createRoot(props)
   //qiankun环境中渲染
   root.render(<App />)
