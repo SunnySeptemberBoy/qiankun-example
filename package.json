@@ -4,7 +4,11 @@
   "description": "qiankun demo",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npm run start",
+    "start": "npm-run-all --parallel dev:*",
+    "dev:main": "cd main && npm run dev",
+    "dev:sub-vue": "cd sub-vue && npm run dev",
+    "dev:sub-react": "cd sub-react && npm run start"
   },
   "keywords": [],
   "author": "",
