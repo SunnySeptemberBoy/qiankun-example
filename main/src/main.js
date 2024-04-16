@@ -26,5 +26,5 @@ registerMicroApps(apps, {
     }
   ]
 })
-setDefaultMountApp('/sub-vue')
+// setDefaultMountApp('/sub-vue')
 start()

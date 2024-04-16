@@ -3,6 +3,11 @@ const microApps = [
     name: 'sub-vue',
     entry: '//localhost:7777/sub-vue',
     activeRule: '/sub-vue'
+  },
+  {
+    name: 'sub-react',
+    entry: '//localhost:8888',
+    activeRule: '/sub-react'
   }
 ]
 
