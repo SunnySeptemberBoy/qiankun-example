@@ -8,6 +8,8 @@ const router = useRouter()
 
 const changeRouter = () => {
   router.push('/about')
+  // history.pushState('/sub-react')
+  history.pushState(null, '/sub-react', '/sub-react')
 }
 const changeGlobalState = () => {
   proxy.$qiankun.setGlobalState({
